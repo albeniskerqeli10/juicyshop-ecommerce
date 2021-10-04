@@ -1,4 +1,4 @@
-import { useEffect , Suspense, lazy} from 'react';
+import { useEffect } from 'react';
 
 import {Row ,Col,  } from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux'
