@@ -1,14 +1,13 @@
-import { useEffect} from 'react';
+import { useEffect , Suspense, lazy} from 'react';
+
 import {Row ,Col,  } from 'react-bootstrap';
-import Product from "../components/Product.js";
 import {useDispatch, useSelector} from 'react-redux'
 import {listProducts} from '../actions/productActions.js';
-
 
 import Message from "../components/Message.js";
 
 import Loader from "../components/Loader.js";
-
+import Product from '../components/Product.js'
 
 
 const HomeScreen = () => {
