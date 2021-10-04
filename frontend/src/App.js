@@ -8,10 +8,10 @@ import Loader from './components/Loader.js';
 
 import {BrowserRouter as Router , Route} from 'react-router-dom';
 const HomeScreen = lazy(() => import(/* webpackChunkName:"Home" */  './screens/HomeScreen.js'));
-const ProductScreen = lazy(() => import(/* webpackChunkName:"Product" */     './screens/ProductScreen.js'));
+const ProductScreen = lazy(() => import(/* webpackChunkName:"Product"  */     './screens/ProductScreen.js'));
 const Cartscreen = lazy(() => import( /* webpackChunkName:"Cart" */ './screens/CartScreen.js'));
 const LoginScreen = lazy(() => import(/* webpackChunkName:"Login" */   './screens/LoginScreen.js'));
-const RegisterScreen = lazy(() => import(/* webpackChunkName:"Register" */ ' ./screens/RegisterScreen.js'));
+const RegisterScreen = lazy(() => import(/* webpackChunkName:"Register" */ './screens/RegisterScreen.js'));
 
 function App() {
   
