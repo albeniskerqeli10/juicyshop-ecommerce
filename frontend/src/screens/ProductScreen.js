@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Row, Col, Image, ListGroup, Card, Button , Form} from "react-bootstrap";
+import { Row, Col, Image, ListGroup, Card, Form} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "../components/Rating";
 import Loader from '../components/Loader';
@@ -7,6 +7,7 @@ import Message from '../components/Message';
 
 import {useDispatch ,useSelector} from 'react-redux';
 import {listProductsDetails} from '../actions/productActions.js';
+import Button from "../UI/Button";
 const ProductScreen = ({ history, match }) => {
   const [qty , setQty] = useState(1);
 const productDetails = useSelector(state => state.productDetails);

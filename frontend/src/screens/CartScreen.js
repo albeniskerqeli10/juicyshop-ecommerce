@@ -1,10 +1,11 @@
 import React,{useEffect} from 'react';
 import {useDispatch , useSelector} from 'react-redux';
 import Message from '../components/Message';
-import {Row ,Col , ListGroup , Image,Form,Button,Card} from 'react-bootstrap';
+import {Row ,Col , ListGroup , Image,Form,Card} from 'react-bootstrap';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import {Link} from 'react-router-dom';
 import {FaTrash} from 'react-icons/fa';
+import Button from '../UI/Button';
 const CartScreen = ({match,location,history}) => {
 
   const cart = useSelector(state => state.cart);

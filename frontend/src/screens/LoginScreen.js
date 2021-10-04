@@ -1,12 +1,14 @@
 import  {useState , useEffect} from 'react';
 
 import {Link} from 'react-router-dom';
-import {Form, Button,Row,Col} from 'react-bootstrap';
+import {Form,Row,Col} from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
 import {login} from '../actions/userActions.js';
 import {useDispatch, useSelector} from 'react-redux';
 import Message from '../components/Message'
 import Loader from '../components/Loader';
+import TextInput from '../UI/TextInput';
+import Button from '../UI/Button';
 
 
 const LoginScreen = ({location , history}) => {
@@ -55,12 +57,9 @@ useEffect(() => {
         {error && <Message variant="danger">{error}</Message>}
         {loading && <Loader/>}
         <Form onSubmit ={submitHandler}>
-            <Form.Group >
-                <Form.Control type="email" placeholder="Enter Email" value={email} onChange={handleEmail}></Form.Control>
-            </Form.Group>
-            <Form.Group>
-                <Form.Control type="password" placeholder="Enter Password" value={password} onChange={handlePassword}></Form.Control>
-            </Form.Group>
+                <TextInput type="email" placeholder="Enter Email" value={email} onChange={handleEmail}/>
+            
+                <TextInput type="password" placeholder="Enter Password" value={password} onChange={handlePassword}/>
 
             <Button type="submit" variant="primary">
                 Sign In

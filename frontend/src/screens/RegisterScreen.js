@@ -1,12 +1,14 @@
 import  {useState , useEffect} from 'react';
 
 import {Link} from 'react-router-dom';
-import {Form, Button,Row,Col} from 'react-bootstrap';
+import {Form,Row,Col} from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
 import {register} from '../actions/userActions.js';
 import {useDispatch, useSelector} from 'react-redux';
 import Message from '../components/Message'
 import Loader from '../components/Loader';
+import TextInput from '../UI/TextInput';
+import Button from '../UI/Button';
 
 
 const RegisterScreen = ({location , history}) => {
@@ -65,18 +67,11 @@ useEffect(() => {
         {error && <Message variant="danger">{error}</Message>}
         {loading && <Loader/>}
         <Form onSubmit={submitHandler}>
-        <Form.Group >
-                <Form.Control type="text" placeholder="Enter Name" value={name} onChange={handleName} required></Form.Control>
-            </Form.Group>
-            <Form.Group >
-                <Form.Control type="email" placeholder="Enter Email" value={email} onChange={handleEmail} required></Form.Control>
-            </Form.Group>
-            <Form.Group>
-                <Form.Control type="password" placeholder="Enter Password" value={password} onChange={handlePassword} required></Form.Control>
-            </Form.Group>
-            <Form.Group>
-                <Form.Control type="password" placeholder="Confirm Password" value={confirmPassword} onChange={handleConfirmPassword}></Form.Control>
-            </Form.Group>
+                <TextInput type="text" placeholder="Enter Name" value={name} onChange={handleName} required></TextInput>
+                <TextInput type="text" placeholder="Enter Email" value={email} onChange={handleEmail} required></TextInput>
+                <TextInput type="text" placeholder="Enter Password" value={password} onChange={handlePassword} required></TextInput>
+                <TextInput type="text" placeholder="Enter Password" value={confirmPassword} onChange={handleConfirmPassword} required></TextInput>
+
 
             <Button type="submit" variant="primary" >
                 Sign Up
