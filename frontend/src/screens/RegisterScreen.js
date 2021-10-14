@@ -3,20 +3,24 @@ import  {useState , useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Form,Row,Col} from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
-import {register} from '../actions/userActions.js';
+import {register} from '../redux/actions/userActions.js';
 import {useDispatch, useSelector} from 'react-redux';
 import Message from '../components/Message'
 import Loader from '../components/Loader';
 import TextInput from '../UI/TextInput';
 import Button from '../UI/Button';
+import useForm from '../hooks/useForm';
 
 
 const RegisterScreen = ({location , history}) => {
-    const [name,setName] = useState('');
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
+    const {formData, handleInputChange} = useForm({
+        name:'',
+        email:'',
+        password:'',
+        confirmPassword:'',
+    })
+    const {name,email,password,confirmPassword} = formData;
     const [message,setMessage] = useState(null);
-    const [confirmPassword,setConfirmPassword] = useState('');
     const redirect = location.search ? location.search.split('=')[1]: '/'
 const dispatch = useDispatch();
 const userRegister = useSelector(state => state.userRegister);
@@ -28,28 +32,8 @@ const submitHandler = (e) => {
     }
 else {
     dispatch(register(name,email,password));
-    console.log(loading, error, userInfo);
 }
 
-}
-const handleEmail = (e) => {
-    e.preventDefault();
-    setEmail(e.target.value);
-}
-const handleName = (e) => {
-    e.preventDefault();
-
-    setName(e.target.value);
-}
-const handlePassword = (e) => {
-    e.preventDefault();
-
-    setPassword(e.target.value);
-}
-const handleConfirmPassword  = (e) => {
-    e.preventDefault();
-
-    setConfirmPassword(e.target.value);
 }
 
 
@@ -67,10 +51,10 @@ useEffect(() => {
         {error && <Message variant="danger">{error}</Message>}
         {loading && <Loader/>}
         <Form onSubmit={submitHandler}>
-                <TextInput type="text" placeholder="Enter Name" value={name} onChange={handleName} required></TextInput>
-                <TextInput type="text" placeholder="Enter Email" value={email} onChange={handleEmail} required></TextInput>
-                <TextInput type="text" placeholder="Enter Password" value={password} onChange={handlePassword} required></TextInput>
-                <TextInput type="text" placeholder="Enter Password" value={confirmPassword} onChange={handleConfirmPassword} required></TextInput>
+                <TextInput type="text" name="name" placeholder="Enter Name" value={name} onChange={handleInputChange} required></TextInput>
+                <TextInput type="text" name="email" placeholder="Enter Email" value={email} onChange={handleInputChange} required></TextInput>
+                <TextInput type="text" name="password" placeholder="Enter Password" value={password} onChange={handleInputChange} required></TextInput>
+                <TextInput type="text"  name="confirmPassword" placeholder="Enter Password" value={confirmPassword} onChange={handleInputChange} required></TextInput>
 
 
             <Button type="submit" variant="primary" >

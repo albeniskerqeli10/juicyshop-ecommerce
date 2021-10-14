@@ -3,17 +3,21 @@ import  {useState , useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Form,Row,Col} from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
-import {login} from '../actions/userActions.js';
+import {login} from '../redux/actions/userActions.js';
 import {useDispatch, useSelector} from 'react-redux';
 import Message from '../components/Message'
 import Loader from '../components/Loader';
 import TextInput from '../UI/TextInput';
 import Button from '../UI/Button';
-
-
+import useForm from '../hooks/useForm';
+// useForm
 const LoginScreen = ({location , history}) => {
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
+
+    const {formData, handleInputChange} = useForm({
+        email:'',
+        password:''
+    })
+    const {email,password} = formData;
     const redirect = location.search ? location.search.split('=')[1]: '/'
 const dispatch = useDispatch();
 const userLogin = useSelector(state => state.userLogin);
@@ -36,14 +40,6 @@ else {
 
 }
 
-const handleEmail = (e) => {
-    e.preventDefault();
-    setEmail(e.target.value);
-}
-const handlePassword = (e) => {
-    e.preventDefault();
-    setPassword(e.target.value);
-}
 
 useEffect(() => {
     if(userInfo) {
@@ -57,9 +53,9 @@ useEffect(() => {
         {error && <Message variant="danger">{error}</Message>}
         {loading && <Loader/>}
         <Form onSubmit ={submitHandler}>
-                <TextInput type="email" placeholder="Enter Email" value={email} onChange={handleEmail}/>
+                <TextInput type="email"  name="email" placeholder="Enter Email" value={email} onChange={handleInputChange}/>
             
-                <TextInput type="password" placeholder="Enter Password" value={password} onChange={handlePassword}/>
+                <TextInput type="password" name="password" placeholder="Enter Password" value={password} onChange={handleInputChange}/>
 
             <Button type="submit" variant="primary">
                 Sign In

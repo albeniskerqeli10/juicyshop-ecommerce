@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,eACF,CAEA,GACE,cACF,CAEA,GACE,gBACF,CAEA,aACE,YACF","file":"main.c2cc70e9.chunk.css","sourcesContent":["main {\n  min-height: 80vh;\n}\n\nh3 {\n  padding:1rem 0;\n}\n\nh1 {\n  font-size:1.4rem;\n}\n\n.rating span {\n  margin: 0.1rem;\n}"]}

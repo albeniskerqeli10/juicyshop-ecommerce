@@ -1,8 +1,8 @@
-import React,{useEffect} from 'react';
+import {useEffect} from 'react';
 import {useDispatch , useSelector} from 'react-redux';
 import Message from '../components/Message';
 import {Row ,Col , ListGroup , Image,Form,Card} from 'react-bootstrap';
-import { addToCart, removeFromCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../redux/actions/cartActions';
 import {Link} from 'react-router-dom';
 import {FaTrash} from 'react-icons/fa';
 import Button from '../UI/Button';

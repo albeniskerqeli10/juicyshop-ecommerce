@@ -6,7 +6,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 
 import {useDispatch ,useSelector} from 'react-redux';
-import {listProductsDetails} from '../actions/productActions.js';
+import {listProductsDetails} from '../redux/actions/productActions.js';
 import Button from "../UI/Button";
 const ProductScreen = ({ history, match }) => {
   const [qty , setQty] = useState(1);

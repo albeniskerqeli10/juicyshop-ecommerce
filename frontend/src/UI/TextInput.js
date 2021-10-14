@@ -1,10 +1,11 @@
 import {Form} from 'react-bootstrap';
 
 
-const TextInput = ({type,placeholder,value ,onChange}) => {
+const TextInput = ({type,placeholder,value ,onChange ,label, name, required,controlId ,children}) => {
     return(
-        <Form.Group >
-                <Form.Control type={type} placeholder={placeholder} value={value} onChange={onChange} required></Form.Control>
+        <Form.Group controlId={controlId} >
+        {children}
+                <Form.Control name={name}  label={label} type={type} placeholder={placeholder} value={value} onChange={onChange} required ></Form.Control>
             </Form.Group>
     )
 }
