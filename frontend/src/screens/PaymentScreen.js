@@ -5,13 +5,12 @@ import FormContainer from '../components/FormContainer';
 import {savePaymentMethod} from '../redux/actions/cartActions';
 import {Form,Col} from 'react-bootstrap';
 import Button from '../UI/Button';
-import TextInput from '../UI/TextInput';
 
 const PaymentScreen = ({history}) => {
       const cart = useSelector(state => state.cart);
       const {shippingAddress } = cart;
 
-      if(!shippingAddress) {
+      if(!shippingAddress.address) {
 history.push('/shipping');
       }
 const [paymentMethod , setPaymentMethod] = useState('');
@@ -34,7 +33,7 @@ const submitHandler = (e) => {
                        <Form.Group>
                    <Form.Label as='legend'>Select Method</Form.Label>
                        <Col>
-                             <Form.Check type='radio' value="Paypal" label="Paypal or Credit Card" id='Paypal' name='paymentMethod'  onChange={(e) => setPaymentMethod(e.target.value)}></Form.Check>
+                             <Form.Check type='radio' value="Paypal" label="Paypal or Credit Card" id='Paypal' name='paymentMethod'  onChange={(e) => setPaymentMethod(e.target.value)} required></Form.Check>
                                          </Col>
                                          </Form.Group>
 

@@ -1,6 +1,5 @@
 import  {useState , useEffect} from 'react';
 
-import {Link} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
 import {FaTimes} from "react-icons/fa";
 
@@ -16,8 +15,7 @@ const ProfileScreen = ({location , history, match}) => {
     const userId = match.params.id;
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
-    const [message,setMessage] = useState('');
-    const redirect = location.search ? location.search.split('=')[1]: '/'
+    const [message] = useState('');
 const dispatch = useDispatch();
 const userDetails = useSelector(state => state.userDetails);
 const userLogin = useSelector(state => state.userLogin);

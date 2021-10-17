@@ -1,14 +1,12 @@
 import { Form } from "react-bootstrap";
 import Button from "../UI/Button";
 import TextInput from "../UI/TextInput";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import FormContainer from "../components/FormContainer";
 import { saveShippingAddress } from "../redux/actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 import useForm from '../hooks/useForm';
 const ShippingScreen = ({history}) => {
-  const cart = useSelector((state) => state.cart);
-  const { shippingAddress } = cart;
   const {formData , handleInputChange}  =useForm({
     address:'',
     city:'',

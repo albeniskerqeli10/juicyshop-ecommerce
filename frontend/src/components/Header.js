@@ -7,7 +7,6 @@ import {logout} from '../redux/actions/userActions';
 const Header = () => {
   const dispatch = useDispatch();
   const userLogin  = useSelector((state) => state.userLogin);
-  const userRegister=  useSelector((state) => state.userRegister);
   const {userInfo} = userLogin;
   const logoutHandler =(e) => {
  e.preventDefault();

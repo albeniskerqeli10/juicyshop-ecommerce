@@ -6,7 +6,6 @@ import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
 import Message from "../components/Message";
 import { PayPalButton } from "react-paypal-button-v2";
-import Button from "../UI/Button";
 import {ORDER_PAY_RESET} from '../redux/constants/orderConstants.js';
 import axios from "axios";
 const OrderScreen = ({ match }) => {
@@ -63,8 +62,6 @@ const OrderScreen = ({ match }) => {
 const successPaymentHandler =(paymentResult) => {
 console.log(paymentResult, 'Payment Result')
 dispatch(payOrder(orderId,  paymentResult));
-console.log(order,  'Order');
-
 }
 
   return loading ? (

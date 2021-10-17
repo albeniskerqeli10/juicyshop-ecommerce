@@ -53,8 +53,8 @@ useEffect(() => {
         <Form onSubmit={submitHandler}>
                 <TextInput type="text" name="name" placeholder="Enter Name" value={name} onChange={handleInputChange} required></TextInput>
                 <TextInput type="text" name="email" placeholder="Enter Email" value={email} onChange={handleInputChange} required></TextInput>
-                <TextInput type="text" name="password" placeholder="Enter Password" value={password} onChange={handleInputChange} required></TextInput>
-                <TextInput type="text"  name="confirmPassword" placeholder="Enter Password" value={confirmPassword} onChange={handleInputChange} required></TextInput>
+                <TextInput type="password" name="password" placeholder="Enter Password" value={password} onChange={handleInputChange} required></TextInput>
+                <TextInput type="password"  name="confirmPassword" placeholder="Enter Password" value={confirmPassword} onChange={handleInputChange} required></TextInput>
 
 
             <Button type="submit" variant="primary" >
