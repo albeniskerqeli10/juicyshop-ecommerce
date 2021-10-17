@@ -7,7 +7,7 @@ import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 import orderRoutes from './routes/orderRoutes.js';
-
+import path from 'path';
 dotenv.config()
 const app = express();
 app.use(express.json());
@@ -24,7 +24,11 @@ app.get('/' , (req,res) => {
     res.send('API is running');
 })
 
-
+app.use(express.static(path.resolve(__dirname, "../frontend/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+});
 app.use('/api/products' , productRoutes);
 
 app.use('/api/users' , 
