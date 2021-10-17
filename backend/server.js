@@ -7,7 +7,8 @@ import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 import orderRoutes from './routes/orderRoutes.js';
-import path from 'path';
+import path ,{dirname} from 'path';
+const __dirname = path.resolve();
 dotenv.config()
 const app = express();
 app.use(express.json());
