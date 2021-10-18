@@ -8,6 +8,8 @@ import userRoutes from './routes/userRoutes.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 import orderRoutes from './routes/orderRoutes.js';
 import path ,{dirname} from 'path';
+const __dirname = path.resolve();
+
 // const __dirname = path.resolve();
 dotenv.config()
 const app = express();
