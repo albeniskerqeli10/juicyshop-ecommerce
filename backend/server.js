@@ -19,11 +19,14 @@ app.use(cors());
 app.use((req,res,next) => {
     next();
 })
-app.use(express.static(__dirname, "../frontend/build"));
-// Step 2:
-app.get("/", function (request, response) {
-  response.sendFile(__dirname, "../frontend/build", "index.html");
-});
+
+if(process.env.NODE_ENV === 'production') {
+    app.use(express('../frontend/build/index.html'))
+}
+
+// app.get("/", function (request, response) {
+//   response.sendFile(__dirname, "../frontend/build", "index.html");
+// });
 app.use('/api/products' , productRoutes);
 
 app.use('/api/users' , 
