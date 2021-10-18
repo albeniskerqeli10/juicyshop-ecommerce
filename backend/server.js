@@ -19,10 +19,10 @@ app.use(cors());
 app.use((req,res,next) => {
     next();
 })
-app.use(express.static(path.resolve(__dirname, "../frontend/build")));
+app.use(express.static(__dirname, "../frontend/build"));
 // Step 2:
 app.get("/", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+  response.sendFile(__dirname, "../frontend/build", "index.html");
 });
 app.use('/api/products' , productRoutes);
 
