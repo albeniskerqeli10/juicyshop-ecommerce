@@ -14,7 +14,7 @@
     "heroku-postbuild": "npm run install-client && npm run build",
     "server": "node backend/server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\""
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run frontend"
 },
   "author": "Albenis Kerqeli",
   "license": "MIT",
