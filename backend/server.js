@@ -19,12 +19,6 @@ app.use(cors());
 app.use((req,res,next) => {
     next();
 })
-
-
-app.get('/' , (req,res) => {
-    res.send('API is running');
-})
-
 app.use(express.static(path.resolve(__dirname, "../frontend/build")));
 // Step 2:
 app.get("/", function (request, response) {
