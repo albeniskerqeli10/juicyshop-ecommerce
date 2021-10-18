@@ -8,7 +8,7 @@ import userRoutes from './routes/userRoutes.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 import orderRoutes from './routes/orderRoutes.js';
 import path ,{dirname} from 'path';
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 dotenv.config()
 const app = express();
 app.use(express.json());
@@ -26,7 +26,10 @@ app.get('/' , (req,res) => {
 
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express('../frontend/build/index.html'))
+    app.use(express.static("client/build"));
+    app.get("*", (req,res) => {
+        res.sendFile(path.resolve(__dirname , "../client"  , "build" , "index.html"));
+    })
 }
 
 // app.get("/", function (request, response) {
