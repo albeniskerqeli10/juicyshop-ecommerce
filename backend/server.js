@@ -21,13 +21,9 @@ app.use(cors());
 app.use((req,res,next) => {
     next();
 })
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static("frontend/build"));
-    app.get("/", (req,res) => {
-        res.sendFile(path.resolve(__dirname , "../frontend"  , "build" , "index.html"));
-    })
-}
-
+app.get('/'  , (req,res) => {
+    res.send('Api');
+})
 // app.get("/", function (request, response) {
 //   response.sendFile(__dirname, "../frontend/build", "index.html");
 // });
