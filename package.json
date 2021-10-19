@@ -10,7 +10,8 @@
   "scripts": {
     "server": "nodemon backend/server.js",
     "develop": "npm run server ",
-    "start": "npm run server "
+    "start": "npm run server ",
+    "client":"cd frontend && npm start"
 
   },
   "author": "Albenis Kerqeli",

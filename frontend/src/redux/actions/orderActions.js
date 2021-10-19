@@ -15,7 +15,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
        }
       }
     const { data } = await axios.post(
-      `http://localhost:5000/api/orders`,
+      `https://juicyshop-backend.herokuapp.com/api/orders`,
       order,
       config
     );
@@ -59,7 +59,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`http://localhost:5000/api/orders/${id}`, config)
+    const { data } = await axios.get(`https://juicyshop-backend.herokuapp.com/api/orders/${id}`, config)
 
     dispatch({
       type: ORDER_DETAILS_SUCCESS,
@@ -94,7 +94,7 @@ export const payOrder = (orderId, paymentResult) => async(dispatch , getState) =
         Authorization:`Bearer ${userInfo.token}`
       }
     }
-    const {data} =  await axios.put(`http://localhost:5000/api/orders/${orderId}/pay`,paymentResult, config)
+    const {data} =  await axios.put(`https://juicyshop-backend.herokuapp.com/api/orders/${orderId}/pay`,paymentResult, config)
 
     dispatch({
       type:ORDER_PAY_SUCCESS,
@@ -128,7 +128,7 @@ export const myOrdersList = () => async(dispatch , getState) => {
         Authorization:`Bearer ${userInfo.token}`
       }
     }
-    const { data } =  await axios.get(`http://localhost:5000/api/orders/myorders`, config)
+    const { data } =  await axios.get(`https://juicyshop-backend.herokuapp.com/api/orders/myorders`, config)
 
     dispatch({
       type:MY_ORDERS_SUCCESS,
