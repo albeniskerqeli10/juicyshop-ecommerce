@@ -8,7 +8,6 @@
     "node": "16.x"
   },
   "scripts": {
-    "build": "cd frontend && npm run build",
     "server": "nodemon backend/server.js",
     "develop": "npm run server ",
     "start": "npm run server "
