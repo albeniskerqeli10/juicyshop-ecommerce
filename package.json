@@ -8,13 +8,10 @@
     "node": "16.x"
   },
   "scripts": {
-    "frontend":"cd frontend && npm start",
     "build": "cd frontend && npm run build",
-    "install-client": "cd frontend && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
     "server": "nodemon backend/server.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\""
+    "develop": "npm run server ",
+    "start": "npm run server "
 
   },
   "author": "Albenis Kerqeli",
